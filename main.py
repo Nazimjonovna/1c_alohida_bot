@@ -117,7 +117,13 @@ async def uzb(message: types.Message):
             data = response.json()
             summ = data['allsumm']
             val = data['currency']
-            print(data)
+            for i in range(len(data['contracts'])):
+                    contract_id = data['contracts'][i]['contract']
+                    contractsumm = data['contracts'][i]['contractsumm']
+                    contractcurrency = data['contracts'][i]['contractcurrency']
+                    contractekvivalent = data['contracts'][i]['contractekvivalent']
+            if contractsumm is not None:
+                message_text = f"Sizning jammi qarzdorligingiz: {summ} {val},\n va ushbu {contract_id}-shartnomasi bo'yicha ma'lumotlar:\n{contractsumm} {contractcurrency}\n ekvvivaletligi: {contractekvivalent}"
             if data is not None and 'contracts' in data and data['contracts']:
                 buttons = []
                 row = []
@@ -135,7 +141,7 @@ async def uzb(message: types.Message):
                 back_button = InlineKeyboardButton(text="Orqaga", callback_data='Orqaga')
                 buttons.append([back_button])
                 reply_markup = InlineKeyboardMarkup(inline_keyboard = buttons)
-                await message.answer(f"Sizda mavjud qarzdorlik-{summ} {val}, shartnomani tanlang:", reply_markup=reply_markup)
+                await message.answer(text = message_text, reply_markup=reply_markup)
                 await Input.contracts.set()
             else:
                 await message.answer("data yoq sizda", reply_markup=user_uz)
@@ -158,20 +164,10 @@ async def uzb(message: types.Message):
                     if data['allsumm'] != None:
                         global summ, contract_id
                         contract_id = k
-                        summ = data['allsumm']
-                        val = data['currency']
-                        for i in range(len(data['contracts'])):
-                            if data['contracts'][i]['contract'] == contract_id:
-                                contractsumm = data['contracts'][i]['contractsumm']
-                                contractcurrency = data['contracts'][i]['contractcurrency']
-                                contractekvivalent = data['contracts'][i]['contractekvivalent']
-                        if contractsumm is not None:
-                            message_text = f"Sizning jammi qarzdorligingiz: {summ} {val},\n va ushbu {contract_id}-shartnomasi bo'yicha ma'lumotlar:\n{contractsumm} {contractcurrency}\n ekvvivaletligi: {contractekvivalent}"
-                            await bot.send_message(chat_id=chat_id, text = message_text)
-                            await state.finish()
-                            await bot.send_message(message.chat.id, "Quyidagilardan tanlang: ", reply_markup=kop)
-                        else:
-                            await bot.send_message(chat_id=chat_id, text = message_text)
+                        await state.finish()
+                        await bot.send_message(message.chat.id, "Quyidagilardan tanlang: ", reply_markup=kop)
+                        # else:
+                        #     await bot.send_message(chat_id=chat_id, text = message_text)
                     else:
                         message_text = "Hozirda sizda qarzdorlik mavjud emas"
                         await state.finish()
