@@ -190,6 +190,7 @@ async def uzb(message: types.Message):
             response = requests.get(api_url, params=params, headers=headers)
             if response.ok:
                 data = response.json()
+                print(data)
                 await bot.send_message(user_id, f"{data['succed_text']}")
                 await bot.edit_message_reply_markup(
                     chat_id=callback_query.message.chat.id,
