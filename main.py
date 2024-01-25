@@ -172,7 +172,8 @@ async def uzb(message: types.Message):
                             await state.finish()
             else:
                 await bot.send_message(message.chat.id, 'Orqaga', reply_markup=user_uz)
-
+# obbboooo bosh og'riqda shu
+                
 
         @dp.callback_query_handler(text='Xa')
         async def tel3(callback_query: types.CallbackQuery):
