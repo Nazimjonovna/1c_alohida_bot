@@ -1,62 +1,43 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
 
-
-
-lang1 = ReplyKeyboardMarkup(
+start_t = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton("🇺🇿")],
-        [KeyboardButton("🇺🇿")],
-        [KeyboardButton("🇺🇿")],
+        [KeyboardButton('/start')],
     ],
     resize_keyboard=True,
 )
 
-tel = ReplyKeyboardMarkup(
+lang = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton('Ulashish📞', request_contact=True)]
-    ],
-    resize_keyboard=True,
-)
-
-menu = ReplyKeyboardMarkup(
-    keyboard=[
-        [
-            KeyboardButton("Qarzdorlikni tekshirish"),
-            KeyboardButton("Seriya bo'yicha izlash"),
-         ]
+        [KeyboardButton("🇺🇿 O'zbek tili")],
+        [KeyboardButton("🇷🇺 Русский язык")],
+        [KeyboardButton("🇬🇧 English")],
     ],
     resize_keyboard=True
 )
 
-kop = ReplyKeyboardMarkup(
+contact_uz = ReplyKeyboardMarkup(
     keyboard=[
-        [
-            KeyboardButton("Xa"),
-            KeyboardButton("Yo'q"),
-            KeyboardButton("Orqaga"),
-         ]
+        [KeyboardButton('Ulashish', request_contact=True)]
     ],
     resize_keyboard=True
 )
 
+kop = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton("Xa", callback_data='Xa')],
+        [InlineKeyboardButton("Yo'q", callback_data="Yo'q")],
+        [InlineKeyboardButton("Orqaga", callback_data='Orqaga')],
+    ]
+)
 
-t_list = ReplyKeyboardMarkup(
+user_uz = ReplyKeyboardMarkup(
     keyboard=[
-        [
-            KeyboardButton("Tovarning kategoriyalari"),
-            KeyboardButton("Izlash"),
-            KeyboardButton("Asosiy menyuga qaytish")
-         ]
+        [KeyboardButton('Qarzdorlikni tekshirish'),
+        KeyboardButton("Seriya bo'yicha izlash")],
+        [KeyboardButton('Biz bilan bog’lanish')],
+        [KeyboardButton('Akt sverka olish')]
     ],
     resize_keyboard=True
 )
 
-t_k_list = ReplyKeyboardMarkup(
-    keyboard=[
-        [
-            KeyboardButton("Tovarlar ro’yxati"),
-            KeyboardButton("Asosiy menyuga qaytish")
-         ]
-    ],
-    resize_keyboard=True
-)
