@@ -14,13 +14,22 @@ import sqlite3
 import os
 from aiogram.types import CallbackQuery
 
+API_TOKEN = "6293716593:AAH8dR8RNDf6Sv67Bjo9aPwla7zXb8-ihqk"
 
+api_url = 'http://5.182.26.180:55565/telegram/hs/hl/gd'
+login = 'Hilol'
+password = '0ut0fb0unD'
+
+headers = {
+            'Authorization': 'Basic SElMT0w6MHV0MGZiMHVuRA==',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive'
+        }
 conn = sqlite3.connect('Baza_User.db')
 sql = conn.cursor()
 
 sql.execute("""CREATE TABLE IF NOT EXISTS User(chat_id, tel_nomer)""")
 conn.commit()
-# conn.close()
 
 class Input(StatesGroup):
     sery = State()
