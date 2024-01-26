@@ -85,7 +85,7 @@ async def uzb(message: types.Message):
         await message.answer(f"sizdagi xatolik{result}")
 
 
-
+#nxjj
 
     @dp.message_handler(content_types=types.ContentType.CONTACT)
     async def uzb_baza(message: types.Message):
