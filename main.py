@@ -85,7 +85,7 @@ async def uzb(message: types.Message):
         await message.answer(f"sizdagi xatolik{result}")
 
 
-#nxjj
+#mana biror narsa commentdagi
 
     @dp.message_handler(content_types=types.ContentType.CONTACT)
     async def uzb_baza(message: types.Message):
@@ -94,7 +94,7 @@ async def uzb(message: types.Message):
         chat_id =  message.from_user.id
         params = {
             'type': 'phone',
-            'chat_id': chat_id,
+             'chat_id': chat_id,
             'phone_number': phone_number,
             'language':lan
         }
