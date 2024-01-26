@@ -86,6 +86,8 @@ async def uzb(message: types.Message):
 
 
 #mana biror narsa commentdagi
+#gitni to'g'rilash
+#cheking
 
     @dp.message_handler(content_types=types.ContentType.CONTACT)
     async def uzb_baza(message: types.Message):
