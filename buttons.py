@@ -1,4 +1,6 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardRemove
+
+
 
 start_t = ReplyKeyboardMarkup(
     keyboard=[
@@ -33,8 +35,7 @@ kop = InlineKeyboardMarkup(
 
 user_uz = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton('Qarzdorlikni tekshirish'),
-        KeyboardButton("Seriya bo'yicha izlash")],
+        [KeyboardButton('Qarzdorlikni tekshirish')],
         [KeyboardButton('Biz bilan bog’lanish')],
         [KeyboardButton('Akt sverka olish')]
     ],
